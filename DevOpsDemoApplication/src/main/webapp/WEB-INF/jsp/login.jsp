@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 <link rel="stylesheet" href="css/LoginPage.css" type="text/css" />
 <script src="js/app.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/service.js"></script>
 </head>
 <body data-ng-app="DevOpsDemoApp">
   <div class="wrapper">
