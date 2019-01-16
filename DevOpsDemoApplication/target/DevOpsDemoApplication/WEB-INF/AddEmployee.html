@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add New Employee</title>
+<script src="scripts/angular.js"></script>
+  <script src="scripts/angular-touch.js"></script>
+  <script src="scripts/angular-animate.js"></script>
+  <script src="scripts/bootstrap.js"></script>
+  <script src="scripts/jquery-1.8.2.js"></script>
+  <script src="scripts/bootstrap-datepicker.js"></script>
+ <script src="http://ui-grid.info/docs/grunt-scripts/csv.js"></script>
+   <script src="http://ui-grid.info/docs/grunt-scripts/pdfmake.js"></script>
+   <script src="http://ui-grid.info/docs/grunt-scripts/vfs_fonts.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.0.6/ui-grid.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-grid/4.0.6/ui-grid.css"  type="text/css"/>
+   <link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css" />
+   <link rel="stylesheet" href="bootstrap/datepicker.css" type="text/css" />
+   <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <link rel="stylesheet" href="css/mySite.css" type="text/css" />
+   <script src="js/app.js"></script>
+</head>
+<body data-ng-app="demoApp">
+<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#" class = "navbar-brand" ><img src="images/Kovair_logo_transp-white-Employee-Management.png" /></a>
+            </div>
+
+            <ul class="nav navbar-nav">
+                <li><a href="ViewDemoPage.html">HOME</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Leave<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Apply Leave</a></li>
+                        <li><a href="#">Leave Status</a></li>
+                        <li><a href="#">Leave Balance</a></li>
+                    </ul>
+                </li>
+                <li class="active"><a href="AddEmployee.html">Add Employee</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span>Hello Patty Brown</a></li>
+                <li><a href="login.jsp" id="logoutClick"  class="btn btn-link btn-md">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+	<div class="container" data-ng-controller="AddEmployeeCtrl">
+    <fieldset class="scheduler-border">
+        <legend class="scheduler-border">Add Employee Form</legend>
+        <form class="form-horizontal" role="form" >
+            <div class="form-group">
+                <div class="col-sm-6" style="float: left">
+                   <div class="form-group">
+	                  <label class="control-label col-sm-3" for="FirstName">First Name:</label>
+	                  <div class="col-sm-6">
+	                    <input type="text" class="form-control" id="txtFirstName" data-ng-model="Employee.firstName"  />
+	                  </div>
+                 </div>
+                  <div class="form-group">
+                    	 <label class="control-label col-sm-3">Select Department: </label>
+	                    <div class="col-sm-6">
+	                        <select name="department" id="dept"  data-ng-model = "Employee.department"  class="form-control">
+	                        	<option  data-ng-repeat="dept in departments" value="{{dept.name}}">{{dept.name}}</option>
+	                        </select>
+	                    </div>
+                    </div>
+                   <div class="form-group">
+	                  <label class="control-label col-sm-3" for="Location">Location:</label>
+	                  <div class="col-sm-6">
+	                    <input type="text" class="form-control" id="txtLocation" data-ng-model="Employee.location"  />
+	                  </div>
+                  </div>
+                    <div class="form-group">
+	                  <label class="control-label col-sm-3" for="Phone">Phone No:</label>
+	                  <div class="col-sm-6">
+	                    <input type="text" class="form-control" id="phone" data-ng-model="Employee.phone"  />
+	                  </div>
+                   </div>
+                   <div class="form-group">
+	                  <label class="control-label col-sm-3" for="Email">Email Id:</label>
+	                  <div class="col-sm-6">
+	                    <input type="text" class="form-control" id="txtEmail" data-ng-model="Employee.email"  />
+	                  </div>
+                   </div>
+                </div>
+                <div class="col-sm-6" style="float: left">
+                	<div class="form-group">
+	                  <label class="control-label col-sm-4" for="Last Name">Last Name:</label>
+	                  <div class="col-sm-6">
+	                    <input type="text" class="form-control" id="txtLastName" data-ng-model="Employee.lastName"  />
+	                  </div>
+                    </div>
+                     <div class="form-group">
+	                  <label class="control-label col-sm-4" for="SupvisorName">Supervisor Name:</label>
+	                  <div class="col-sm-6">
+	                    <input type="text" class="form-control" id="txtSupvisorName" data-ng-model="Employee.supervisor"  />
+	                  </div>
+                  </div>
+                     <div class="form-group">
+	                  <label class="control-label col-sm-4" for="Designation">Designation:</label>
+	                  <div class="col-sm-6">
+	                    <input type="text" class="form-control" id="txtDesignation" data-ng-model="Employee.designation"  />
+	                  </div>
+                    </div>
+                     <div class="form-group">
+	                  <label class="control-label col-sm-4" for="Doj">Date of Joining:</label>
+	                  <div class="col-sm-6">
+	                    <input type="text" id="doj" class="form-control"  data-ng-model="Employee.doj"  />
+	                  </div>
+                    </div>
+                    <div class="form-group">
+                    	 <label class="control-label col-sm-4">Gender: </label>
+	                    <div class="col-sm-6">
+	                        <select name="gender" id="gender" data-ng-model = "Employee.gender" class="form-control">
+	                        	<option value = "Male">Male</option>
+	                        	<option value = "Female">Female</option>
+	                        </select>
+	                    </div>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <div style="float: right">
+	            <button type="submit" id="btnApplyLeave" class="btn btn-success" data-ng-click="addEmployeeToServer()">Add Employee</button>
+	            <a href="ViewDemoPage.html" id="btnCanelApply" class="btn btn-link">Cancel</a>
+            </div>
+            
+        </form>
+    </fieldset>
+</div>
+</body>
+</html>

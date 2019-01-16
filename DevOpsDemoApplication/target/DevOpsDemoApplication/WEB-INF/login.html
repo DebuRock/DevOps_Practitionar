@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Java Demo Application</title>
+<link rel="stylesheet" href="bootstrap/bootstrap.css" type="text/css" />
+</head>
+<body>
+	<div class="wrapper">
+    <div class="content">
+      <div class="container">
+        <div class=".login-div col-sm-10">
+          <div class="panel panel-primary" style="margin-top:137px; margin-left: 230px">
+            <div class="panel-heading"><span><img src="images/key_PNG1174.png" height="20" width="20"/></span>Login</div>
+            <div class="panel-body" >
+              <form method="post" class="form-horizontal" action="UserServlet"  role="form">
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="UserId">User ID:</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="txtUserId" name="userId" placeholder="Enter User Id Here" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-sm-3" for="Password">Password:</label>
+                  <div class="col-sm-6">
+                    <input type="password" class="form-control" id="txtPassword" name="password" placeholder="Enter Password Here" />
+
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-3 col-sm-10">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" />Remember Me</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-3 col-sm-10">
+                    <button id="btnClick" type="submit" class="btn btn-primary btn-md">Login</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
